@@ -6,28 +6,28 @@ const pillars = [
   {
     icon: <Award size={48} className="text-gold mb-6" />,
     title: "Premium Craftsmanship",
-    desc: "Uncompromising quality and attention to detail in every installation."
+    desc: "We don't cut corners to cut costs. Every roof we install is built to the standard we'd put on our own homes — quality materials, clean work, and a result you can see from the street."
   },
   {
     icon: <Globe size={48} className="text-gold mb-6" />,
     title: "Bilingual Service",
-    desc: "English & Spanish / Hablamos Español. Clear communication for everyone."
+    desc: "English & Spanish · Hablamos Español. We communicate clearly — in your language. No confusion, no miscommunication, no surprises. Just a straightforward process from the first call to the final inspection."
   },
   {
     icon: <FileCheck size={48} className="text-gold mb-6" />,
     title: "Transparent Process",
-    desc: "No surprises, no hidden fees. Honest estimates you can rely on."
+    desc: "You'll know the scope, the timeline, and the price before we ever pick up a tool. No hidden fees, no sudden change orders, no guesswork."
   },
   {
     icon: <MapPin size={48} className="text-gold mb-6" />,
     title: "Local & Licensed",
-    desc: "Proud to serve London, KY and surrounding Laurel County with integrity."
+    desc: "We're not a national chain or a storm-chasing crew passing through. Ginnova is based here, licensed here, and building a reputation here — one roof at a time."
   }
 ];
 
 const WhyGinnova = () => {
   return (
-    <section id="why-us" className="bg-black py-24 border-y border-darker">
+    <section id="why-us" className="bg-white py-16 md:py-24 border-y border-gray-100">
       <div className="container mx-auto px-6 md:px-12">
         <div className="text-center mb-20">
           <motion.h2 
@@ -35,9 +35,9 @@ const WhyGinnova = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-3xl md:text-5xl font-serif font-bold text-white mb-4"
+            className="text-3xl md:text-5xl font-serif font-bold text-black mb-4"
           >
-            Why London, KY Homeowners Choose Ginnova
+            Why Kentucky Homeowners Choose Ginnova
           </motion.h2>
           <div className="w-24 h-1 bg-gold mx-auto"></div>
         </div>
@@ -52,11 +52,11 @@ const WhyGinnova = () => {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className="flex flex-col items-center text-center"
             >
-              <div className="bg-dark p-6 rounded-full border border-gold/20 mb-6 group hover:border-gold transition-colors duration-300">
+              <div className="bg-gray-50 p-6 rounded-full border border-gray-200 mb-6 group hover:border-gold transition-colors duration-300">
                 {pillar.icon}
               </div>
-              <h3 className="text-xl font-serif font-bold text-white mb-3">{pillar.title}</h3>
-              <p className="text-gray-400 text-sm leading-relaxed max-w-xs">
+              <h3 className="text-xl font-serif font-bold text-black mb-3">{pillar.title}</h3>
+              <p className="text-gray-600 text-sm leading-relaxed max-w-xs">
                 {pillar.desc}
               </p>
             </motion.div>

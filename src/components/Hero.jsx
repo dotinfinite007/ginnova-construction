@@ -4,12 +4,25 @@ import { motion } from 'framer-motion';
 const Hero = () => {
   return (
     <section className="relative h-screen flex items-center justify-center overflow-hidden">
-      {/* Background Image / Overlay */}
-      <div 
-        className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: 'url("https://images.unsplash.com/photo-1632759145355-6d5da12db997?auto=format&fit=crop&q=80")' }}
-      >
-        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-black"></div>
+      {/* Video Background / Overlay */}
+      <div className="absolute inset-0 z-0 overflow-hidden">
+        <video 
+          autoPlay 
+          muted 
+          loop 
+          playsInline 
+          className="w-full h-full object-cover"
+        >
+          <source src="/hero-video.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+        {/* Localized radial gradient to ensure text readability without hiding the video edges */}
+        <div 
+          className="absolute inset-0 z-10"
+          style={{ 
+            background: 'radial-gradient(circle at center, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 35%, rgba(255,255,255,0.8) 55%, rgba(255,255,255,0) 75%)' 
+          }}
+        ></div>
       </div>
 
       <div className="relative z-10 container mx-auto px-6 md:px-12 text-center mt-16">
@@ -17,9 +30,9 @@ const Hero = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-4xl md:text-6xl lg:text-7xl font-serif font-bold text-white mb-4 leading-tight"
+          className="text-4xl md:text-6xl lg:text-7xl font-serif font-bold text-black mb-4 leading-tight"
         >
-          London's Premier <br className="hidden md:block" />Roofing Contractor
+          Kentucky's Premier <br className="hidden md:block" />Roofing Contractor
         </motion.h1>
         
         <motion.p 
@@ -35,9 +48,18 @@ const Hero = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="text-gray-300 text-lg md:text-xl font-light max-w-2xl mx-auto mb-10"
+          className="text-gray-700 text-lg md:text-xl font-light max-w-2xl mx-auto mb-6"
         >
-          Serving London, KY and surrounding Laurel County with premium roofing installations, honest pricing, and bilingual service.
+          Ginnova Construction LLC delivers premium roofing installations across the entire state of Kentucky. Whether you need a full roof replacement, a metal upgrade, or storm damage repair — we show up, we communicate, and we get it done right.
+        </motion.p>
+        
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.5 }}
+          className="text-black text-sm md:text-base font-medium max-w-2xl mx-auto mb-10 opacity-80"
+        >
+          Proudly serving English & Spanish-speaking homeowners. — Atendemos en Español.
         </motion.p>
         
         <motion.div 
@@ -49,7 +71,7 @@ const Hero = () => {
           <a href="#booking" className="bg-gold text-black px-8 py-4 rounded-full font-bold text-lg hover:bg-white transition-all w-full sm:w-auto shadow-lg shadow-gold/20">
             Book a Free Inspection
           </a>
-          <a href="tel:3038748955" className="border-2 border-white text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-white hover:text-black transition-all w-full sm:w-auto">
+          <a href="tel:3038748955" className="border-2 border-black text-black px-8 py-4 rounded-full font-bold text-lg hover:bg-black hover:text-white transition-all w-full sm:w-auto">
             Call (303) 874-8955
           </a>
         </motion.div>

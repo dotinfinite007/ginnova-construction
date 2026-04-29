@@ -22,7 +22,7 @@ const BookingForm = () => {
   };
 
   return (
-    <section id="booking" className="bg-black py-24 relative overflow-hidden">
+    <section id="booking" className="bg-white py-16 md:py-24 relative overflow-hidden">
       {/* Decorative background element */}
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-gold/50 to-transparent"></div>
       
@@ -33,7 +33,7 @@ const BookingForm = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-3xl md:text-5xl font-serif font-bold text-white mb-4"
+            className="text-3xl md:text-5xl font-serif font-bold text-black mb-4"
           >
             Request Your Free Roof Inspection
           </motion.h2>
@@ -54,69 +54,69 @@ const BookingForm = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
           onSubmit={handleSubmit}
-          className="bg-dark p-8 md:p-10 rounded-xl border border-darker shadow-2xl"
+          className="bg-gray-50 p-8 md:p-10 rounded-xl border border-gray-200 shadow-xl"
         >
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
             <div>
-              <label className="block text-sm font-medium text-gray-400 mb-2">Full Name</label>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Full Name</label>
               <input 
                 type="text" 
                 name="name"
                 required
                 value={formData.name}
                 onChange={handleChange}
-                className="w-full bg-black border border-gray-800 rounded-md px-4 py-3 text-white focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition-colors"
+                className="w-full bg-white border border-gray-300 rounded-md px-4 py-3 text-base text-black focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition-colors"
                 placeholder="John Doe"
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-400 mb-2">Phone Number</label>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Phone Number</label>
               <input 
                 type="tel" 
                 name="phone"
                 required
                 value={formData.phone}
                 onChange={handleChange}
-                className="w-full bg-black border border-gray-800 rounded-md px-4 py-3 text-white focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition-colors"
+                className="w-full bg-white border border-gray-300 rounded-md px-4 py-3 text-base text-black focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition-colors"
                 placeholder="(555) 123-4567"
               />
             </div>
           </div>
 
           <div className="mb-6">
-            <label className="block text-sm font-medium text-gray-400 mb-2">Service Address / Location</label>
+            <label className="block text-sm font-medium text-gray-700 mb-2">Service Address / Location</label>
             <input 
               type="text" 
               name="address"
               required
               value={formData.address}
               onChange={handleChange}
-              className="w-full bg-black border border-gray-800 rounded-md px-4 py-3 text-white focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition-colors"
-              placeholder="123 Main St, London, KY 40741"
+              className="w-full bg-black border border-gray-800 rounded-md px-4 py-3 text-base text-white focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition-colors"
+              placeholder="123 Main St, Lexington, KY 40502"
             />
           </div>
 
           <div className="mb-6">
-            <label className="block text-sm font-medium text-gray-400 mb-2">Preferred Appointment Date</label>
+            <label className="block text-sm font-medium text-gray-700 mb-2">Preferred Appointment Date</label>
             <input 
               type="date" 
               name="date"
               value={formData.date}
               onChange={handleChange}
-              className="w-full bg-black border border-gray-800 rounded-md px-4 py-3 text-white focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition-colors"
+              className="w-full bg-black border border-gray-800 rounded-md px-4 py-3 text-base text-white focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition-colors"
               style={{ colorScheme: 'dark' }}
             />
           </div>
 
           <div className="mb-8">
-            <label className="block text-sm font-medium text-gray-400 mb-2">Describe Your Situation</label>
+            <label className="block text-sm font-medium text-gray-700 mb-2">Describe Your Situation</label>
             <textarea 
               name="message"
               rows="5"
               value={formData.message}
               onChange={handleChange}
-              className="w-full bg-black border border-gray-800 rounded-md px-4 py-3 text-white focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition-colors resize-none"
-              placeholder="Tell us about your roof (e.g., leaks, storm damage, full replacement needed)..."
+              className="w-full bg-white border border-gray-300 rounded-md px-4 py-3 text-base text-black focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition-colors resize-none"
+              placeholder="Tell us what's going on with your roof — the more detail, the better."
             ></textarea>
           </div>
 
@@ -125,8 +125,9 @@ const BookingForm = () => {
             <input 
               type="file" 
               multiple
-              className="w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-darker file:text-gold hover:file:bg-black transition-colors"
+              className="w-full text-base text-gray-600 file:mr-4 file:py-3 file:px-4 file:rounded-md file:border-0 file:text-base file:font-semibold file:bg-gray-200 file:text-black hover:file:bg-gray-300 transition-colors"
             />
+            <p className="text-xs text-gray-500 mt-2">Helps us prepare before we arrive.</p>
           </div>
 
           <button 
@@ -136,9 +137,14 @@ const BookingForm = () => {
             Schedule My Free Inspection
           </button>
           
-          <p className="text-center text-xs text-gray-500 mt-4">
-            This form will connect to our scheduling system — your info goes directly to our team.
-          </p>
+          <div className="text-center mt-6">
+            <p className="text-sm text-gray-600 mb-1">
+              Your information goes directly to our team and is never shared. Expect a call or text within 24 hours.
+            </p>
+            <p className="text-sm text-gray-600">
+              ¿Prefieres hablar en Español? Sin problema — nuestro equipo está listo para atenderte.
+            </p>
+          </div>
         </motion.form>
       </div>
     </section>

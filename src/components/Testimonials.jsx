@@ -4,25 +4,25 @@ import { Star } from 'lucide-react';
 
 const testimonials = [
   {
-    quote: "Ginnova Construction replaced our entire roof after a severe storm. The crew was professional, fast, and the new standing seam metal roof looks incredible. Highly recommend their services to anyone in London.",
-    name: "Michael R.",
-    location: "London, KY"
+    quote: "Ginnova replaced our entire roof after storm damage and the whole process was smooth from start to finish. Professional crew, clean work, and they kept us informed the whole time.",
+    name: "James R.",
+    location: "Lexington, KY"
   },
   {
-    quote: "They gave us an honest quote with zero pressure. The shingles they recommended are top-tier and they cleaned up the yard perfectly after the job was done. Fantastic bilingual team!",
-    name: "Sarah & David T.",
+    quote: "We needed someone we could communicate with easily — Ginnova's bilingual team made everything so much simpler. The metal roof they installed looks incredible and we couldn't be happier.",
+    name: "Maria L.",
     location: "Corbin, KY"
   },
   {
-    quote: "It's hard to find contractors you can trust these days. Ginnova showed up on time, stuck to the budget, and delivered premium craftsmanship. Our home looks brand new.",
-    name: "James L.",
-    location: "Laurel County"
+    quote: "Fair pricing, honest people, and outstanding craftsmanship. I've already recommended Ginnova to two of my neighbors. If you need a roofer in Kentucky, these are your guys.",
+    name: "Tom W.",
+    location: "Louisville, KY"
   }
 ];
 
 const Testimonials = () => {
   return (
-    <section className="bg-dark py-24 border-t border-darker">
+    <section className="bg-gray-50 py-16 md:py-24 border-t border-gray-200">
       <div className="container mx-auto px-6 md:px-12">
         <div className="text-center mb-16">
           <motion.h2 
@@ -30,7 +30,7 @@ const Testimonials = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-3xl md:text-5xl font-serif font-bold text-white mb-4"
+            className="text-3xl md:text-5xl font-serif font-bold text-black mb-4"
           >
             What Our Clients Are Saying
           </motion.h2>
@@ -45,7 +45,7 @@ const Testimonials = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.2 }}
-              className="bg-black p-8 rounded-lg border border-darker hover:border-gold/30 transition-colors duration-300 flex flex-col h-full relative"
+              className="bg-white p-8 rounded-lg border border-gray-200 hover:border-gold/30 transition-colors duration-300 flex flex-col h-full relative shadow-sm"
             >
               <div className="flex space-x-1 mb-6 text-gold">
                 <Star size={20} fill="currentColor" />
@@ -54,7 +54,7 @@ const Testimonials = () => {
                 <Star size={20} fill="currentColor" />
                 <Star size={20} fill="currentColor" />
               </div>
-              <p className="text-gray-300 text-lg italic mb-8 flex-grow">
+              <p className="text-gray-700 text-lg italic mb-8 flex-grow">
                 "{testimonial.quote}"
               </p>
               <div>
