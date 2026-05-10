@@ -25,8 +25,8 @@ const Navigation = () => {
           <a href="#why-us" className="text-white hover:text-gold transition-colors text-base font-semibold tracking-wide">Why Us</a>
           <a href="#process" className="text-white hover:text-gold transition-colors text-base font-semibold tracking-wide">Our Process</a>
           <a href="#contact" className="text-white hover:text-gold transition-colors text-base font-semibold tracking-wide">Contact</a>
-          <a href="#booking" className="bg-gold text-black px-8 py-3 rounded-full font-bold text-base hover:bg-white transition-colors duration-300 shadow-lg shadow-gold/20">
-            Book Free Inspection
+          <a href="tel:3038748955" className="bg-gold text-black px-8 py-3 rounded-full font-bold text-base hover:bg-white transition-colors duration-300 shadow-lg shadow-gold/20">
+            Call Now
           </a>
         </div>
         
@@ -49,8 +49,8 @@ const Navigation = () => {
           <a href="#why-us" onClick={() => setIsOpen(false)} className="text-white text-lg font-semibold py-3 hover:text-gold border-b border-white/10">Why Us</a>
           <a href="#process" onClick={() => setIsOpen(false)} className="text-white text-lg font-semibold py-3 hover:text-gold border-b border-white/10">Our Process</a>
           <a href="#contact" onClick={() => setIsOpen(false)} className="text-white text-lg font-semibold py-3 hover:text-gold border-b border-white/10">Contact</a>
-          <a href="#booking" onClick={() => setIsOpen(false)} className="bg-gold text-black text-center px-6 py-4 rounded-full font-bold text-lg mt-4">
-            Book Free Inspection
+          <a href="tel:3038748955" onClick={() => setIsOpen(false)} className="bg-gold text-black text-center px-6 py-4 rounded-full font-bold text-lg mt-4">
+            Call Now
           </a>
         </div>
       )}

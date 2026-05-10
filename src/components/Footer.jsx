@@ -2,7 +2,7 @@ import React from 'react';
 
 const Footer = () => {
   return (
-    <footer className="bg-white pt-16 pb-8 border-t border-gray-200">
+    <footer id="contact" className="bg-white pt-16 pb-8 border-t border-gray-200">
       <div className="container mx-auto px-6 md:px-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-0 mb-12">
           {/* Left Column (Logo) */}
@@ -15,7 +15,7 @@ const Footer = () => {
             <a href="#services" className="text-gray-600 hover:text-gold transition-colors text-sm min-h-[48px] flex items-center">Services</a>
             <a href="#why-us" className="text-gray-600 hover:text-gold transition-colors text-sm min-h-[48px] flex items-center">Why Us</a>
             <a href="#process" className="text-gray-600 hover:text-gold transition-colors text-sm min-h-[48px] flex items-center">Our Process</a>
-            <a href="#booking" className="text-gray-600 hover:text-gold transition-colors text-sm min-h-[48px] flex items-center">Contact</a>
+            <a href="tel:3038748955" className="text-gray-600 hover:text-gold transition-colors text-sm min-h-[48px] flex items-center">Contact</a>
           </div>
 
           {/* Right Column (Contact) */}

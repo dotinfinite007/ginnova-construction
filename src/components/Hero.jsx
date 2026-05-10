@@ -68,9 +68,7 @@ const Hero = () => {
           transition={{ duration: 0.8, delay: 0.6 }}
           className="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6"
         >
-          <a href="#booking" className="bg-gold text-black px-8 py-4 rounded-full font-bold text-lg hover:bg-white transition-all w-full sm:w-auto shadow-lg shadow-gold/20">
-            Book a Free Inspection
-          </a>
+
           <a href="tel:3038748955" className="border-2 border-black text-black px-8 py-4 rounded-full font-bold text-lg hover:bg-black hover:text-white transition-all w-full sm:w-auto">
             Call (303) 874-8955
           </a>

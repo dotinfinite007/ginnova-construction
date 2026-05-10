@@ -4,7 +4,6 @@ import Hero from './components/Hero';
 import Services from './components/Services';
 import WhyGinnova from './components/WhyGinnova';
 import Process from './components/Process';
-import BookingForm from './components/BookingForm';
 import Testimonials from './components/Testimonials';
 import Footer from './components/Footer';
 
@@ -16,7 +15,6 @@ function App() {
       <Services />
       <WhyGinnova />
       <Process />
-      <BookingForm />
       <Testimonials />
       <Footer />
     </div>
