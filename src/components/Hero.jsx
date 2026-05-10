@@ -70,7 +70,7 @@ const Hero = () => {
         >
 
           <a href="tel:3038748955" className="border-2 border-black text-black px-8 py-4 rounded-full font-bold text-lg hover:bg-black hover:text-white transition-all w-full sm:w-auto">
-            Call (303) 874-8955
+            Call Now
           </a>
         </motion.div>
       </div>
