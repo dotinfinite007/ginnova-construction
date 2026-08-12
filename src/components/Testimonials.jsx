@@ -1,5 +1,4 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 import { Star } from 'lucide-react';
 
 const testimonials = [
@@ -25,26 +24,20 @@ const Testimonials = () => {
     <section className="bg-gray-50 py-16 md:py-24 border-t border-gray-200">
       <div className="container mx-auto px-6 md:px-12">
         <div className="text-center mb-16">
-          <motion.h2 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+          <h2
+            data-reveal="h"
             className="text-3xl md:text-5xl font-serif font-bold text-black mb-4"
           >
             What Our Clients Are Saying
-          </motion.h2>
+          </h2>
           <div className="w-24 h-1 bg-gold mx-auto"></div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div data-reveal="w" className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {testimonials.map((testimonial, index) => (
-            <motion.div 
+            <div
               key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.2 }}
+              data-reveal="ctn"
               className="bg-white p-8 rounded-lg border border-gray-200 hover:border-gold/30 transition-colors duration-300 flex flex-col h-full relative shadow-sm"
             >
               <div className="flex space-x-1 mb-6 text-gold">
@@ -61,7 +54,7 @@ const Testimonials = () => {
                 <h4 className="text-gold font-bold text-lg">{testimonial.name}</h4>
                 <span className="text-gray-500 text-sm">{testimonial.location}</span>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>

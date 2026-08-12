@@ -1,5 +1,4 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 import { Shield, Home, Factory, Hammer } from 'lucide-react';
 
 const services = [
@@ -30,35 +29,26 @@ const Services = () => {
     <section id="services" className="bg-gray-50 py-16 md:py-24">
       <div className="container mx-auto px-6 md:px-12">
         <div className="text-center mb-16">
-          <motion.h2 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+          <h2
+            data-reveal="h"
             className="text-3xl md:text-5xl font-serif font-bold text-black mb-6"
           >
             Roofing Solutions Built for Kentucky Weather
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+          </h2>
+          <p
+            data-reveal="p"
             className="text-gray-600 max-w-2xl mx-auto mb-8 text-lg"
           >
             Kentucky weather doesn't forgive a weak roof. From summer hailstorms to winter ice loads, every installation we do is built to handle what the Bluegrass State throws at it.
-          </motion.p>
+          </p>
           <div className="w-24 h-1 bg-gold mx-auto"></div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div data-reveal="w" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {services.map((service, index) => (
-            <motion.div 
+            <div
               key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+              data-reveal="ctn"
               className="bg-white border-t-2 border-gray-200 p-8 rounded-b-lg shadow-sm hover:border-gold hover:shadow-lg transition-all duration-300 group"
             >
               <div className="transform group-hover:-translate-y-2 transition-transform duration-300">
@@ -68,7 +58,7 @@ const Services = () => {
                   {service.desc}
                 </p>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>
