@@ -13,6 +13,43 @@
   }
 }
 
-html {
-  scroll-behavior: smooth;
+/* ============================================================
+   NX23 MOTION
+   ============================================================ */
+
+/* Lenis maneja el scroll suave. scroll-behavior:smooth de CSS
+   pelea con el y produce saltos - por eso queda en auto. */
+html { scroll-behavior: auto; }
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-stopped { overflow: hidden; }
+
+/* Anti-FOUC. Solo cuando el motor confirmo que arranco.
+   :not([data-reveal="w"]) es obligatorio: "w" es solo un wrapper de
+   agrupacion - si se oculta, todo lo que viva adentro hereda
+   visibility:hidden y desaparece (iconos, tarjetas, imagenes). */
+html.nx-on [data-reveal]:not([data-reveal="w"]) { visibility: hidden; }
+
+@media (prefers-reduced-motion: reduce) {
+  html [data-reveal] { visibility: visible !important; }
 }
+
+.nx-word, .nx-char { display: inline-block; will-change: transform; }
+.nx-line { display: block; will-change: transform; }
+
+/* Escena sticky: la altura del padre ES la duracion de la animacion */
+[data-scene-screen] { position: sticky; top: 0; height: 100svh; overflow: clip; }
+
+[data-px="w"] { position: relative; overflow: clip; }
+[data-px="img"] { position: absolute; inset: -12% 0 auto 0; width: 100%; height: 124%;
+                  object-fit: cover; will-change: transform; }
+
+[data-hor] { position: relative; }
+[data-hor-screen] { position: sticky; top: 0; height: 100svh; overflow: clip;
+                    display: flex; align-items: center; }
+[data-hor-track] { display: flex; will-change: transform; }
+
+[data-progress] > i { display: block; height: var(--nx-p, 0%); width: 100%;
+                      background: currentColor; transition: none; }
+
+[data-mag] { display: inline-block; will-change: transform; }

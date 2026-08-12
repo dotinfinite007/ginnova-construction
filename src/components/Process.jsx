@@ -1,5 +1,4 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 
 const steps = [
   {
@@ -21,47 +20,61 @@ const steps = [
 
 const Process = () => {
   return (
-    <section id="process" className="bg-gray-50 py-16 md:py-24">
-      <div className="container mx-auto px-6 md:px-12">
-        <div className="text-center mb-20">
-          <motion.h2 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-3xl md:text-5xl font-serif font-bold text-black mb-4"
+    /* En desktop el scroll vertical se traduce a movimiento horizontal.
+       El motor calcula la altura de [data-hor] a partir del ancho del track.
+       En movil el bloque cae a columna normal y no pasa nada raro. */
+    <section id="process" data-hor className="bg-gray-50">
+      <div data-hor-screen className="py-16 lg:py-0">
+        <div
+          data-hor-track
+          className="flex-col lg:flex-row gap-12 lg:gap-16 px-6 md:px-12 lg:pl-[8vw] lg:pr-[12vw] w-full lg:w-auto"
+        >
+          {/* Panel de entrada */}
+          <div className="lg:flex-[0_0_min(38vw,460px)] flex flex-col justify-center lg:self-center mb-8 lg:mb-0">
+            <p data-reveal="a" className="text-gold font-medium tracking-[0.28em] uppercase text-xs mb-5">
+              Our Process
+            </p>
+            <h2 data-reveal="h" className="text-3xl md:text-5xl font-serif font-bold text-black mb-6 leading-tight">
+              Getting a New Roof <br />Is Simpler Than <br />You Think
+            </h2>
+            <div className="w-24 h-1 bg-gold mb-6"></div>
+            <p data-reveal="p" className="text-gray-600 text-base leading-relaxed">
+              Tres pasos. Cero sorpresas. Sigue haciendo scroll — el proceso avanza contigo.
+            </p>
+          </div>
+
+          {steps.map((step, index) => (
+            <div
+              key={index}
+              data-reveal="ctn"
+              className="lg:flex-[0_0_min(30vw,400px)] flex flex-col items-center text-center bg-white p-8 rounded-xl border border-gray-200 shadow-sm lg:self-center"
+            >
+              <div className="w-20 h-20 bg-gray-50 border-2 border-gold rounded-full flex items-center justify-center text-3xl font-serif font-bold text-gold mb-6 shadow-md shadow-gold/10">
+                {step.number}
+              </div>
+              <h3 className="text-2xl font-serif font-bold text-black mb-4">{step.title}</h3>
+              <p className="text-gray-600 text-base leading-relaxed">{step.desc}</p>
+            </div>
+          ))}
+
+          {/* Panel de cierre: aterriza el valor y alarga el recorrido */}
+          <div
+            data-reveal="ctn"
+            className="lg:flex-[0_0_min(28vw,360px)] flex flex-col justify-center text-center lg:text-left lg:self-center"
           >
-            Getting a New Roof Is Simpler Than You Think
-          </motion.h2>
-          <div className="w-24 h-1 bg-gold mx-auto"></div>
-        </div>
-
-        <div className="relative">
-          {/* Horizontal Connecting Line (Desktop) */}
-          <div className="hidden lg:block absolute top-1/2 left-0 w-full h-0.5 bg-gold/30 -translate-y-1/2 z-0"></div>
-          
-          {/* Vertical Connecting Line (Mobile/Tablet) */}
-          <div className="block lg:hidden absolute top-0 left-1/2 h-full w-0.5 bg-gold/30 -translate-x-1/2 z-0"></div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 relative z-10">
-            {steps.map((step, index) => (
-              <motion.div 
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.2 }}
-                className="flex flex-col items-center text-center bg-white p-8 rounded-xl border border-gray-200 shadow-sm relative"
-              >
-                <div className="w-20 h-20 bg-gray-50 border-2 border-gold rounded-full flex items-center justify-center text-3xl font-serif font-bold text-gold mb-6 shadow-md shadow-gold/10">
-                  {step.number}
-                </div>
-                <h3 className="text-2xl font-serif font-bold text-black mb-4">{step.title}</h3>
-                <p className="text-gray-600 text-base leading-relaxed">
-                  {step.desc}
-                </p>
-              </motion.div>
-            ))}
+            <p className="text-gold font-medium tracking-[0.28em] uppercase text-xs mb-4">
+              Ready when you are
+            </p>
+            <h3 className="text-2xl md:text-3xl font-serif font-bold text-black mb-5 leading-snug">
+              Free inspection. <br />No obligation.
+            </h3>
+            <a
+              href="tel:3038748955"
+              data-mag
+              className="inline-block bg-gold text-black px-8 py-4 rounded-full font-bold text-base hover:bg-black hover:text-white transition-colors self-center lg:self-start"
+            >
+              Call (303) 874-8955
+            </a>
           </div>
         </div>
       </div>
