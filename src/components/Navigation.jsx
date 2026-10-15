@@ -1,40 +1,39 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Menu, X } from 'lucide-react';
+import BookButton from './BookButton';
+import { openBooking } from '../lib/booking';
+
+const links = [
+  { href: '#services', label: 'Services' },
+  { href: '#why-us', label: 'Why Ginnova' },
+  { href: '#process', label: 'How It Works' },
+  { href: '#book', label: 'Contact' },
+];
 
 const Navigation = () => {
-  const [scrolled, setScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
   return (
-    <nav className="fixed w-full z-50 bg-black py-4 shadow-xl border-b border-gold/20 transition-all duration-300">
-      <div className="container mx-auto px-6 md:px-12 flex justify-between items-center">
-        <a href="#" className="flex items-center">
-          <img src="/logo.png" alt="Ginnova Construction LLC" className="h-24 md:h-32" />
+    <nav className="fixed top-0 w-full z-50 bg-white shadow-md border-b border-gray-200">
+      <div className="container mx-auto px-4 md:px-12 h-20 md:h-24 flex justify-between items-center">
+        <a href="#top" className="flex items-center h-full py-2" aria-label="Ginnova Construction home">
+          <img src="/logo.png" alt="Ginnova Construction LLC" className="h-full w-auto object-contain" />
         </a>
-        
-        <div className="hidden md:flex items-center space-x-8">
-          <a href="#services" className="text-white hover:text-gold transition-colors text-base font-semibold tracking-wide">Services</a>
-          <a href="#why-us" className="text-white hover:text-gold transition-colors text-base font-semibold tracking-wide">Why Us</a>
-          <a href="#process" className="text-white hover:text-gold transition-colors text-base font-semibold tracking-wide">Our Process</a>
-          <a href="#contact" className="text-white hover:text-gold transition-colors text-base font-semibold tracking-wide">Contact</a>
-          <a href="tel:3038748955" className="bg-gold text-black px-8 py-3 rounded-full font-bold text-base hover:bg-white transition-colors duration-300 shadow-lg shadow-gold/20">
-            Call Now
-          </a>
+
+        <div className="hidden lg:flex items-center gap-8">
+          {links.map((l) => (
+            <a key={l.href} href={l.href} className="text-black hover:text-gold transition-colors text-base font-semibold tracking-wide">
+              {l.label}
+            </a>
+          ))}
+          <BookButton source="nav" size="md">Book Free Inspection</BookButton>
         </div>
-        
-        {/* Mobile Menu Button */}
-        <div className="md:hidden">
-          <button 
+
+        <div className="flex lg:hidden items-center gap-2">
+          <BookButton source="nav-mobile" size="sm">Book Free</BookButton>
+          <button
             onClick={() => setIsOpen(!isOpen)}
-            className="text-white p-2 min-w-[44px] min-h-[44px] flex items-center justify-center focus:outline-none"
+            className="text-black p-2 min-w-[44px] min-h-[44px] flex items-center justify-center"
             aria-label="Toggle menu"
           >
             {isOpen ? <X size={28} /> : <Menu size={28} />}
@@ -42,16 +41,20 @@ const Navigation = () => {
         </div>
       </div>
 
-      {/* Mobile Dropdown Menu */}
       {isOpen && (
-        <div className="md:hidden absolute top-full left-0 w-full bg-black/95 backdrop-blur-md border-t border-gold/20 shadow-lg py-4 px-6 flex flex-col space-y-4">
-          <a href="#services" onClick={() => setIsOpen(false)} className="text-white text-lg font-semibold py-3 hover:text-gold border-b border-white/10">Services</a>
-          <a href="#why-us" onClick={() => setIsOpen(false)} className="text-white text-lg font-semibold py-3 hover:text-gold border-b border-white/10">Why Us</a>
-          <a href="#process" onClick={() => setIsOpen(false)} className="text-white text-lg font-semibold py-3 hover:text-gold border-b border-white/10">Our Process</a>
-          <a href="#contact" onClick={() => setIsOpen(false)} className="text-white text-lg font-semibold py-3 hover:text-gold border-b border-white/10">Contact</a>
-          <a href="tel:3038748955" onClick={() => setIsOpen(false)} className="bg-gold text-black text-center px-6 py-4 rounded-full font-bold text-lg mt-4">
-            Call Now
-          </a>
+        <div className="lg:hidden absolute top-full left-0 w-full bg-white border-t border-gray-200 shadow-lg py-4 px-6 flex flex-col">
+          {links.map((l) => (
+            <a key={l.href} href={l.href} onClick={() => setIsOpen(false)} className="text-black text-lg font-semibold py-3 hover:text-gold border-b border-gray-100">
+              {l.label}
+            </a>
+          ))}
+          <button
+            type="button"
+            onClick={() => { setIsOpen(false); openBooking('menu'); }}
+            className="bg-gold text-black text-center px-6 py-4 rounded-full font-bold text-lg mt-4"
+          >
+            Book Your Free Inspection
+          </button>
         </div>
       )}
     </nav>
