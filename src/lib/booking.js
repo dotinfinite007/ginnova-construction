@@ -1,7 +1,7 @@
 // Single source of truth for the inspection-request form (CRM form: "Website - Free Inspection Request").
 export const FORM_ID = '7fAmdkAAanZYUdxB5jK6';
 export const FORM_URL = `https://api.nexum23.com/widget/form/${FORM_ID}`;
-export const PHONE_TEL = 'tel:3038748955';
+export const PHONE_TEL = 'tel:+16063091978';
 
 // Any "Book" button calls this; BookingModal listens for the event.
 export const openBooking = (source = 'button') => {
